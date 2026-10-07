@@ -1,0 +1,7 @@
+input_shape:
+- 3
+- 32
+- 32
+output_shape:
+- 10
+network_type: prerelu

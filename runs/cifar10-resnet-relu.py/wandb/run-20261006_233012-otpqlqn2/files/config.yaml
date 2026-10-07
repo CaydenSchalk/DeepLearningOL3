@@ -1,0 +1,100 @@
+_wandb:
+    value:
+        cli_version: 0.27.2
+        e:
+            zjz4uevcezm1jnj6smw0rnc2z9bbd2b4:
+                codePath: cifar10-resnet-relu.py
+                codePathLocal: cifar10-resnet-relu.py
+                cpu_count: 24
+                cpu_count_logical: 32
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "982820896768"
+                        used: "839097675776"
+                executable: /home/cayden/miniconda3/bin/python
+                gpu: NVIDIA GeForce RTX 5080
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 10752
+                      memoryTotal: "17094934528"
+                      name: NVIDIA GeForce RTX 5080
+                      uuid: GPU-90ed2ec2-6b6e-5a6c-7da5-3b19c1cc79ba
+                host: linux-mint
+                memory:
+                    total: "50259353600"
+                os: Linux-7.0.0-34-generic-x86_64-with-glibc2.39
+                program: /home/cayden/PycharmProjects/DeepLearningOL3/cifar10-resnet-relu.py
+                python: CPython 3.13.9
+                root: /home/cayden/PycharmProjects/DeepLearningOL3/runs/cifar10-resnet-relu.py
+                startedAt: "2026-10-07T04:30:12.944152Z"
+                writerId: zjz4uevcezm1jnj6smw0rnc2z9bbd2b4
+        m:
+            - "1": trainer/global_step
+              "6":
+                - 3
+              "7": []
+            - "2": '*'
+              "5": 1
+              "6":
+                - 1
+              "7": []
+        python_version: 3.13.9
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 106
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 106
+            "3":
+                - 2
+                - 7
+                - 13
+                - 66
+            "4": 3.13.9
+            "5": 0.27.2
+            "6": 5.2.0
+            "12": 0.27.2
+            "13": linux-x86_64
+batch_size:
+    value: 128
+custom:
+    value: false
+data_dir:
+    value: /home/cayden/PycharmProjects/DeepLearningOL3/datasets
+epochs:
+    value: 50
+experiment:
+    value: cifar10-resnet-relu.py
+input_shape:
+    value:
+        - 3
+        - 32
+        - 32
+network_type:
+    value: prerelu
+output_shape:
+    value:
+        - 10
+run:
+    value: 2
+run_seed:
+    value: 43
+runs:
+    value: 5
+seed:
+    value: 42
+split_seed:
+    value: 0

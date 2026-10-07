@@ -1,0 +1,35 @@
+{
+  "os": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+  "python": "CPython 3.13.9",
+  "startedAt": "2026-10-07T10:09:58.981972Z",
+  "program": "/home/cayden/PycharmProjects/DeepLearningOL3/cifar10-pretrained-gelu.py",
+  "codePath": "cifar10-pretrained-gelu.py",
+  "codePathLocal": "cifar10-pretrained-gelu.py",
+  "root": "/home/cayden/PycharmProjects/DeepLearningOL3/runs/cifar10-pretrained-gelu.py",
+  "host": "linux-mint",
+  "executable": "/home/cayden/miniconda3/bin/python",
+  "cpu_count": 24,
+  "cpu_count_logical": 32,
+  "gpu": "NVIDIA GeForce RTX 5080",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "982820896768",
+      "used": "838964563968"
+    }
+  },
+  "memory": {
+    "total": "50259337216"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 5080",
+      "memoryTotal": "17094934528",
+      "cudaCores": 10752,
+      "architecture": "Blackwell",
+      "uuid": "GPU-90ed2ec2-6b6e-5a6c-7da5-3b19c1cc79ba"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "jp8fenc0i17njh89krivomonm61qrtbb"
+}
