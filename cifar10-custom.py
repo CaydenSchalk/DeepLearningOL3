@@ -270,11 +270,17 @@ class ResNet50(StandardizeTransform):
 
         # self.resnet = torchvision.models.resnet50(weights=torchvision.models.ResNet50_Weights.DEFAULT)
         if CUSTOM:
-            # native 32x32 input: CIFAR stem (3x3 stride 1 conv, no max-pool)
             self.resnet.conv1 = torch.nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
             self.resnet.maxpool = torch.nn.Identity()
         self.resnet.fc = torch.nn.Linear(self.resnet.fc.in_features,
                                          output_shape[-1])
+        if CUSTOM:
+            blocks = [m for m in self.resnet.modules() if isinstance(m, torchvision.models.resnet.Bottleneck)]
+            for i, block in enumerate(blocks):
+                block.bn3 = torch.nn.Sequential(
+                    block.bn3,
+                    torchvision.ops.StochasticDepth(0.2 * i / (len(blocks) - 1), mode='row'))
+            self.resnet.fc = torch.nn.Sequential(torch.nn.Dropout(0.3), self.resnet.fc)
 
     def forward(self, x):
         y = x
