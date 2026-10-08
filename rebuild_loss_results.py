@@ -1,9 +1,3 @@
-"""Rebuild <experiment>-loss-results.txt from the CSVLogger metrics files.
-
-val_loss is NaN in some epochs (fp16 overflow under 16-mixed), so each run's
-curve is taken on the epoch-aligned val_acc rows and the NaNs are linearly
-interpolated (edges hold the nearest valid value).
-"""
 import argparse
 from pathlib import Path
 
