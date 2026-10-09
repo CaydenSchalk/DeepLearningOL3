@@ -27,7 +27,7 @@ warnings.filterwarnings("ignore")
 HERE = Path(__file__).resolve().parent
 TYPE = "gelu" # gelu prerelu pregelu
 EXPERIMENT = Path(__file__).name
-PROJECT = "OL3-CIFAR10"
+PROJECT = "OL3-Custom"
 DATASET = "CIFAR10"
 CUSTOM = True
 SILENT = False
