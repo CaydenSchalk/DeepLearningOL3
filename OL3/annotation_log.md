@@ -83,7 +83,7 @@
 
 ---
 
-**[CE-5]** Noting dropout use inside residual networks
+**[C-CE-5]** Noting dropout use inside residual networks
 
 **Why it matters**: The baseline overfit, so I added regularization. Normal dropout though inside conv blocks can interact badly with BatchNorm.
 
@@ -106,7 +106,7 @@
 
 ---
 
-**[TP-6]** Adding stochastic depth with a linear schedule
+**[C-TP-6]** Adding stochastic depth with a linear schedule
 
 **Why it matters**: Dropping early layers too often hurts training.
 
