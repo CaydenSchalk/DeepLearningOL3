@@ -64,7 +64,7 @@
 
 **Outcome/decision**: Checked nvidia-smi to ensure that my GPU wasn't being overloaded, it wasn't.
 
-**Evidence**: "Assistant warns that retaining 32x32 resolution increases spatial positions sixteen-fold."
+**Evidence**: "Assistant warns that retaining 32x32 resolution increases positions by 16x."
 
 > Excerpt:
 > 
