@@ -20,10 +20,6 @@ from pathlib import Path
 import argparse
 import os
 
-torch.backends.cudnn.benchmark = True
-torch.backends.cudnn.allow_tf32 = True
-torch.set_float32_matmul_precision("high")
-
 logging.getLogger("pytorch_lightning").setLevel(logging.ERROR)
 logging.getLogger("lightning.pytorch").setLevel(logging.ERROR)
 warnings.filterwarnings("ignore")
@@ -200,7 +196,7 @@ class MultiClassNetwork(LightningNetwork):
         self.network_loss = torch.nn.CrossEntropyLoss()
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=0.001, fused=True)
+        optimizer = torch.optim.Adam(self.parameters(), lr=0.001)
         return optimizer
 
 # Attach standardization and augmentation
@@ -342,9 +338,6 @@ def main():
             wandb_logger.log_hyperparams({**configuration, 'run': run + 1,
                                           'run_seed': args.seed + run})
             trainer = pl.Trainer(max_epochs=50,logger=loggers,
-                                 accelerator='gpu',
-                                 precision="16-mixed",
-                                 benchmark=True,
                                  enable_progress_bar=True,
                                  enable_checkpointing=False,
                                  log_every_n_steps=0,
