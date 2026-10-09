@@ -4,7 +4,7 @@
 
 **Outcome/decision**: Learned how GELU smoothly gates negative values instead of zeroing them out, and used this difference in the reflection write-up.
 
-**Evidence**: "Assistant contrasts ReLU's zero-gradient cutoff with GELU's smooth gating: 'Instead of hard-thresholding an activation based only on whether it is positive, GELU smoothly weights the activation according to its magnitude.'"
+**Evidence**: "Assistant compares ReLU's zero-gradient cutoff to GELU's smooth gating."
 
 > Excerpt:
 > 
@@ -22,7 +22,7 @@
 
 **Outcome/decision**: Picked a 3x3 conv with stride 1 and no max pooling to keep native resolution intact.
 
-**Evidence**: "Assistant proposes replacing standard ImageNet downsampling with a 3x3 stride-1 convolution and BatchNorm."
+**Evidence**: "Assistant suggests replacing standard ImageNet downsampling with a 3x3 stride-1 convolution and BatchNorm."
 > Excerpt:
 > 
 > self.conv1 = nn.Conv2d(
@@ -45,7 +45,7 @@
 
 **Outcome/decision**: Decided to keep the 32x32 size intact so early layers can learn more detailed things from them
 
-**Evidence**: "Assistant highlights spatial loss: 'A stride-2 convolution followed by stride-2 max pooling can essentially destroy it immediately. With: 3x3 conv, stride 1 the network can first build meaningful low-level features at full resolution.'"
+**Evidence**: "Assistant notes spatial loss."
 
 > Excerpt:
 > 
@@ -85,11 +85,11 @@
 
 **[CE-5]** Noting dropout use inside residual networks
 
-**Why it matters**: Assistant pointed out that normal dropout inside residual blocks can hurt training and mess with BatchNorm.
+**Why it matters**: The baseline overfit, so I added regularization. Normal dropout though inside conv blocks can interact badly with BatchNorm.
 
-**Outcome/decision**: Shifted away from putting regular dropout everywhere in the blocks, focusing instead on branch-level stochastic depth.
+**Outcome/decision**: I refrained from putting dropout inside the residual blocks. I put stoachstic depth to the residual branch of each of the 16 bottleneck blocks, and just one dropout before the classification layer at the end.
 
-**Evidence**: "Assistant explains why dropout fails inside residual blocks: 'Heavy dropout inside every residual block can actually make optimization worse... because convolutional residual networks already have several regularizing effects.'"
+**Evidence**: "Assistant explains why dropout fails inside residual blocks."
 
 > Excerpt:
 
@@ -106,13 +106,13 @@
 
 ---
 
-**[TP-6]** Integrating Branch-Level Stochastic Depth with Linear Drop Schedules
+**[TP-6]** Adding stochastic depth with a linear schedule
 
-**Why it matters**: Dropping early fundamental feature layers disrupts network convergence, whereas uniform drop probabilities across all depths degrade feature stability.
+**Why it matters**: Dropping early layers too often hurts training.
 
-**Outcome/decision**: Implemented StochasticDepth with a linear schedule scaling from p=0.0 up to p=0.1 across the 8 residual blocks.
+**Outcome/decision**: Used a drop rate that scales from 0.0 up to 0.1, allowing early blocks to stay safe but really regularizing the deeper blocks.
 
-**Evidence**: "Assistant supplies scheduled implementation: 'rates = torch.linspace(0, max_drop_path, 8).tolist()' ensuring early layers remain active while deeper transformations are regularized."
+**Evidence**: "Assistant gives scheduled implementation ensuring early layers remain active while deeper layers are regularized."
 
 > Excerpt:
 > 
