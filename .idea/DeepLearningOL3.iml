@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/datasets" />
     </content>
-    <orderEntry type="jdk" jdkName="C:\Users\Clint\miniconda3\envs\TriMemoCMT" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="$USER_HOME$/miniconda3" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
